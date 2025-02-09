@@ -118,8 +118,8 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <nav className="absolute top-20 left-0 w-full bg-[#0f0f1f] shadow-lg p-6 md:hidden">
-          <ul className="space-y-4 text-lg font-medium text-center text-[#f9f9f9]">
+        <nav className="absolute top-20 left-0 w-full bg-[#0f0f1f] dark:bg-[#1e1e2f] shadow-lg p-6 md:hidden">
+          <ul className="space-y-4 text-lg font-medium text-center text-[#f9f9f9] dark:text-[#fca61f]">
             {["Home", "About", "Services", "Projects", "Contact"].map((item) => (
               <li key={item}>
                 <Link
@@ -131,6 +131,47 @@ const Header = () => {
               </li>
             ))}
           </ul>
+
+          {/* Light/Dark Mode Toggle for Mobile Menu */}
+          <div className="mt-4 flex justify-center">
+            <button
+              onClick={handleThemeToggle}
+              className="p-3 rounded-full bg-gradient-to-r from-[#1de5ff] to-[#ff00ff] hover:from-[#ff00ff] hover:to-[#1de5ff] transition-all"
+              aria-label="Toggle Light/Dark Theme"
+            >
+              {theme === "dark" ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-6 h-6 text-white"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 3v2m0 14v2m8.485-10.485l-1.415 1.415M5.93 17.07l-1.415-1.415m12.122 0l1.415 1.415M5.93 6.93L4.515 5.515M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-6 h-6 text-white"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 2a1 1 0 010 2 10 10 0 000 20 1 1 0 010 2 12 12 0 110-24z"
+                  />
+                </svg>
+              )}
+            </button>
+          </div>
         </nav>
       )}
     </header>
